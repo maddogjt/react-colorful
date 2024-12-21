@@ -1,4 +1,4 @@
-import React from "react";
+import { h } from "preact";
 
 import { Interactive, Interaction } from "./Interactive";
 import { Pointer } from "./Pointer";
@@ -7,6 +7,7 @@ import { hsvaToHslString } from "../../utils/convert";
 import { formatClassName } from "../../utils/format";
 import { clamp } from "../../utils/clamp";
 import { round } from "../../utils/round";
+import { memo } from "../../utils/memo";
 
 interface Props {
   className?: string;
@@ -46,4 +47,4 @@ const HueBase = ({ className, hue, onChange }: Props) => {
   );
 };
 
-export const Hue = React.memo(HueBase);
+export const Hue = memo(HueBase);

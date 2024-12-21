@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
+import { h, JSX, render } from "preact";
+import { useState } from "preact/hooks";
 import { RgbaColor } from "../../src";
 import { DevTools } from "./components/DevTools";
 import { useFaviconColor } from "./hooks/useFaviconColor";
@@ -91,4 +91,4 @@ const Demo = () => {
   );
 };
 
-ReactDOM.render(<Demo />, document.getElementById("root"));
+render(<Demo />, window.document.getElementById("root") ?? window.document);

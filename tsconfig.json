@@ -1,13 +1,15 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
+    "target": "es2018",
+    "module": "es2015",
     "esModuleInterop": true,
-    "jsx": "react",
-    "jsxFactory": "React.createElement",
+		"jsx": "react",
+		"jsxFactory": "h",
     "moduleResolution": "node",
     "declaration": true,
-    "strict": true
+    "strict": true,
+    "lib": ["ES2015", "dom"]
   },
-  "include": ["./src/**/*", "./test/**/*", "./demo/src/**/*"]
+  "--include": ["./src/**/*", "./test/**/*", "./demo/src/**/*"],
+  "include": ["./src/**/*"]
 }

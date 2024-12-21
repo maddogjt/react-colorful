@@ -1,4 +1,4 @@
-import { createElement } from "react";
+import { createElement } from "preact";
 import { styled, setup } from "goober";
 import { createGlobalStyles } from "goober/global";
 import { Star } from "./components/Icon";

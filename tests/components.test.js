@@ -1,4 +1,4 @@
-import React from "react";
+import { h, JSX } from "preact";
 import { render, cleanup, fireEvent } from "@testing-library/react";
 import {
   HexColorInput,

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "preact/hooks";
 
 export const useStargazerCount = (): number => {
   const [count, setCount] = useState(1300);

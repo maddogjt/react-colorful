@@ -69,7 +69,7 @@ npm install react-colorful
 ```
 
 ```js
-import { HexColorPicker } from "react-colorful";
+import { HexColorPicker } from "preact-colorful";
 
 const YourComponent = () => {
   const [color, setColor] = useState("#aabbcc");
@@ -105,7 +105,7 @@ We provide 12 additional color picker components for different color models, unl
 #### Code example
 
 ```js
-import { RgbColorPicker } from "react-colorful";
+import { RgbColorPicker } from "preact-colorful";
 
 const YourComponent = () => {
   const [color, setColor] = useState({ r: 50, g: 100, b: 150 });
@@ -149,7 +149,7 @@ As you probably noticed the color picker itself does not include an input field,
   <summary>How to use <code>HexColorInput</code></summary><br />
 
 ```js
-import { HexColorPicker, HexColorInput } from "react-colorful";
+import { HexColorPicker, HexColorInput } from "preact-colorful";
 
 const YourComponent = () => {
   const [color, setColor] = useState("#aabbcc");
@@ -187,7 +187,7 @@ const YourComponent = () => {
 While not only typing its own functions and variables, it can also help you type yours. Depending on the component you are using, you can also import the type that is associated with the component. For example, if you are using our HSL color picker component, you can also import the `HSL` type.
 
 ```ts
-import { HslColorPicker, HslColor } from "react-colorful";
+import { HslColorPicker, HslColor } from "preact-colorful";
 
 const myHslValue: HslColor = { h: 0, s: 0, l: 0 };
 ```
@@ -210,7 +210,7 @@ If you are using another solution, please refer to the [Aliasing React to Preact
 To fix this, create a `declaration.d.ts` file or add to your existing:
 
 ```
-import React from "react";
+import { h, JSX } from "preact";
 
 declare global {
     namespace React {

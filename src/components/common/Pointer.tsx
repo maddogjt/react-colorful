@@ -1,4 +1,4 @@
-import React from "react";
+import { h, JSX } from "preact";
 import { formatClassName } from "../../utils/format";
 
 interface Props {
@@ -17,8 +17,8 @@ export const Pointer = ({ className, color, left, top = 0.5 }: Props): JSX.Eleme
   };
 
   return (
-    <div className={nodeClassName} style={style}>
-      <div className="react-colorful__pointer-fill" style={{ backgroundColor: color }} />
+    <div class={nodeClassName} style={style}>
+      <div class="react-colorful__pointer-fill" style={{ backgroundColor: color }} />
     </div>
   );
 };

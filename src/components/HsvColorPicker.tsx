@@ -1,4 +1,4 @@
-import React from "react";
+import { h, JSX } from "preact";
 
 import { ColorPicker } from "./common/ColorPicker";
 import { ColorModel, ColorPickerBaseProps, HsvColor } from "../types";

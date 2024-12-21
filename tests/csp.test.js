@@ -1,4 +1,4 @@
-import React from "react";
+import { h, JSX } from "preact";
 import { render, cleanup } from "@testing-library/react";
 import { setNonce, HexColorPicker } from "../src";
 

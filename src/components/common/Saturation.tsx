@@ -1,10 +1,11 @@
-import React from "react";
+import { h } from "preact";
 import { Interactive, Interaction } from "./Interactive";
 import { Pointer } from "./Pointer";
 import { HsvaColor } from "../../types";
 import { hsvaToHslString } from "../../utils/convert";
 import { clamp } from "../../utils/clamp";
 import { round } from "../../utils/round";
+import { memo } from "../../utils/memo";
 
 interface Props {
   hsva: HsvaColor;
@@ -50,4 +51,4 @@ const SaturationBase = ({ hsva, onChange }: Props) => {
   );
 };
 
-export const Saturation = React.memo(SaturationBase);
+export const Saturation = memo(SaturationBase);

@@ -1,4 +1,4 @@
-import React from "react";
+import { h, JSX } from "preact";
 
 export interface RgbColor {
   r: number;
@@ -42,7 +42,7 @@ export interface ColorModel<T extends AnyColor> {
 }
 
 type ColorPickerHTMLAttributes = Omit<
-  React.HTMLAttributes<HTMLDivElement>,
+  JSX.HTMLAttributes<HTMLDivElement>,
   "color" | "onChange" | "onChangeCapture"
 >;
 

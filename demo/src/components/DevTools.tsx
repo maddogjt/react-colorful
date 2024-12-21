@@ -1,4 +1,4 @@
-import React from "react";
+import { h, JSX } from "preact";
 import { PickerPreview } from "./PickerPreview";
 import {
   // HEX

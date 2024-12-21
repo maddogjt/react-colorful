@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import { ComponentType, h, JSX } from "preact";
+import { useState } from "preact/hooks";
 import { ColorPickerBaseProps, AnyColor } from "../../../src/types";
 import { PreviewContainer, PreviewDemo, PreviewOutput, PreviewTitle } from "../styles";
 
 interface Props<T extends AnyColor> {
   title: string;
-  PickerComponent: React.ComponentType<Partial<ColorPickerBaseProps<T>>>;
+  PickerComponent: ComponentType<Partial<ColorPickerBaseProps<T>>>;
   initialColor: T;
 }
 

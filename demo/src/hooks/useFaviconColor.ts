@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef } from "preact";
 import useThrottledEffect from "use-throttled-effect";
 
 const ICON_SIZE = 64;

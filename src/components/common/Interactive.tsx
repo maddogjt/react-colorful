@@ -1,8 +1,10 @@
-import React, { useState, useRef, useCallback } from "react";
+import { h } from "preact";
+import { useState, useRef, useCallback } from "preact/hooks";
 
 import { useIsomorphicLayoutEffect } from "../../hooks/useIsomorphicLayoutEffect";
 import { useEventCallback } from "../../hooks/useEventCallback";
 import { clamp } from "../../utils/clamp";
+import { memo } from "../../utils/memo";
 
 export interface Interaction {
   left: number;
@@ -35,7 +37,7 @@ const preventDefaultMove = (event: MouseEvent | TouchEvent): void => {
 interface Props {
   onMove: (interaction: Interaction) => void;
   onKey: (offset: Interaction) => void;
-  children: React.ReactNode;
+  children: any; // ??
 }
 
 const InteractiveBase = ({ onMove, onKey, ...rest }: Props) => {
@@ -75,7 +77,7 @@ const InteractiveBase = ({ onMove, onKey, ...rest }: Props) => {
   );
 
   const handleMoveStart = useCallback(
-    ({ nativeEvent }: React.MouseEvent | React.TouchEvent) => {
+    (nativeEvent: MouseEvent | TouchEvent) => {
       const el = container.current;
 
       // Prevent text selection
@@ -94,7 +96,7 @@ const InteractiveBase = ({ onMove, onKey, ...rest }: Props) => {
   );
 
   const handleKeyDown = useCallback(
-    (event: React.KeyboardEvent) => {
+    (event: KeyboardEvent) => {
       const keyCode = event.which || event.keyCode;
 
       // Ignore all keys except arrow ones
@@ -115,7 +117,7 @@ const InteractiveBase = ({ onMove, onKey, ...rest }: Props) => {
   const handleMoveEnd = useCallback(() => setDragging(false), []);
 
   const toggleDocumentEvents = useCallback(
-    (state) => {
+    (state: boolean) => {
       // add or remove additional pointer event listeners
       const toggleEvent = state ? window.addEventListener : window.removeEventListener;
       toggleEvent(hasTouched.current ? "touchmove" : "mousemove", handleMove);
@@ -145,4 +147,4 @@ const InteractiveBase = ({ onMove, onKey, ...rest }: Props) => {
   );
 };
 
-export const Interactive = React.memo(InteractiveBase);
+export const Interactive = memo(InteractiveBase);

@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useCallback } from "react";
+import { h, JSX } from "preact";
+import { useState, useEffect, useCallback } from "preact/hooks";
 
 import { useEventCallback } from "../hooks/useEventCallback";
 import { validHex } from "../utils/validate";
@@ -11,18 +12,18 @@ interface ComponentProps {
   onChange: (newColor: string) => void;
 }
 
-type InputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange" | "value">;
+type InputProps = Omit<JSX.HTMLAttributes<HTMLInputElement>, "onChange" | "value">;
 
 export const HexColorInput = (props: Partial<InputProps & ComponentProps>): JSX.Element => {
   const { color = "", onChange, onBlur, ...rest } = props;
   const [value, setValue] = useState(() => escape(color));
   const onChangeCallback = useEventCallback<string>(onChange);
-  const onBlurCallback = useEventCallback<React.FocusEvent<HTMLInputElement>>(onBlur);
+  const onBlurCallback = useEventCallback<JSX.TargetedFocusEvent<HTMLInputElement>>(onBlur);
 
   // Trigger `onChange` handler only if the input value is a valid HEX-color
   const handleChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      const inputValue = escape(e.target.value);
+    (e: JSX.TargetedEvent<HTMLInputElement>) => {
+      const inputValue = escape(e.currentTarget.value);
       setValue(inputValue);
       if (validHex(inputValue)) onChangeCallback("#" + inputValue);
     },
@@ -31,8 +32,8 @@ export const HexColorInput = (props: Partial<InputProps & ComponentProps>): JSX.
 
   // Take the color from props if the last typed color (in local state) is not valid
   const handleBlur = useCallback(
-    (e: React.FocusEvent<HTMLInputElement>) => {
-      if (!validHex(e.target.value)) setValue(escape(color));
+    (e: JSX.TargetedFocusEvent<HTMLInputElement>) => {
+      if (!validHex(e.currentTarget.value)) setValue(escape(color));
       onBlurCallback(e);
     },
     [color, onBlurCallback]
@@ -47,7 +48,7 @@ export const HexColorInput = (props: Partial<InputProps & ComponentProps>): JSX.
     <input
       {...rest}
       value={value}
-      spellCheck="false" // the element should not be checked for spelling errors
+      spellCheck={false} // the element should not be checked for spelling errors
       onChange={handleChange}
       onBlur={handleBlur}
     />

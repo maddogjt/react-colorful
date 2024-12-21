@@ -1,6 +1,6 @@
-import React from "react";
+import { h, JSX } from "preact";
 
-export const Star = (props: React.SVGAttributes<SVGElement>): JSX.Element => (
+export const Star = (props: JSX.SVGAttributes<SVGSVGElement>): JSX.Element => (
   <svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       fill="currentColor"

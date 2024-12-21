@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useRef } from "preact/hooks";
 import { ColorModel, AnyColor, HsvaColor } from "../types";
 import { equalColorObjects } from "../utils/compare";
 import { useEventCallback } from "./useEventCallback";
